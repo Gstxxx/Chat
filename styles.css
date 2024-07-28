@@ -1,0 +1,125 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: space-between;
+}
+
+#chat-container {
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+    width: 300px;
+}
+
+#chat-header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    height: 20px;
+}
+
+#chat-box {
+    background-color: white;
+    border: 1px solid #ccc;
+    display: none;
+    flex-direction: column;
+    height: 400px;
+    justify-content: space-between;
+}
+
+#chat-box.open {
+    display: flex;
+}
+
+#messages {
+    padding: 10px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+#message-input {
+    width: calc(100% - 21px);
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+#send-message {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+
+#toggle-chat{
+    background: transparent;
+    border: transparent;
+    color: white;
+}
+
+.message {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 10px;
+    position: relative;
+    word-wrap: break-word;
+    display: block;
+    opacity: 0;
+    transform: translateY(10px);
+    min-width: 80%;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.message-status {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    font-size: 0.8em;
+    color: gray;
+}
+
+.sent {
+    background-color: #dcf8c6;
+    align-self: flex-end;
+    border-bottom-right-radius: 0;
+}
+
+.sent::after {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 10px;
+    border-width: 10px 0 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent #dcf8c6;
+}
+
+.received {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    align-self: flex-start;
+    border-bottom-left-radius: 0;
+}
+
+.received::after {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 10px;
+    border-width: 10px 10px 10px 0;
+    border-style: solid;
+    border-color: transparent #fff transparent transparent;
+}
